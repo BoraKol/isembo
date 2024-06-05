@@ -100,7 +100,8 @@ app.set('view engine',"ejs");
 global.userIN= null;
 
 //Middlewares
-app.use(express.static("public"));
+// app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
