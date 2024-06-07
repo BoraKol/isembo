@@ -17,6 +17,7 @@ function ejs2html(options) {
   });
 }
 
+// Example usage
 ejs2html({
   path: `${__dirname}/views/index.ejs`,
   outPath: `${__dirname}/public/index.html`
