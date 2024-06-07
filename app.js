@@ -9,7 +9,7 @@ const courseRoute= require('./routes/courseRoute');
 const categoryRoute= require('./routes/categoryRoute');
 const userRoute= require('./routes/userRoute');
 
-
+const serverless = require('serverless-http');
 const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors')
@@ -18,6 +18,8 @@ const multer = require('multer');
 const fs = require('fs');
 
 const app = express();
+
+const router = express.Router();
 
 //Connect DB
 mongoose.connect('mongodb://localhost/smartedu-db' , {
@@ -133,7 +135,13 @@ app.use('/categories' , categoryRoute);
 app.use('/users' ,userRoute);
 app.use('/inbox' , courseRoute);
 
+app.use("/.netlify/functions/app", router);
+
+
+
 
 app.listen(port, () => {
   console.log(`App started on port ${port}`);
 });
+
+module.exports.handler = serverless(app);

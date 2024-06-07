@@ -1,50 +1,50 @@
-const express = require('express');
-const serverless = require('serverless-http');
-const app = express();
-const router = express.Router();
+// const express = require('express');
 
-let records = [];
+// const app = express();
+// const router = express.Router();
 
-//Get all students
-router.get('/', (req, res) => {
-  res.send('App is running..');
-});
+// let records = [];
 
-//Create new record
-router.post('/add', (req, res) => {
-  res.send('New record added.');
-});
+// //Get all students
+// router.get('/', (req, res) => {
+//   res.send('App is running..');
+// });
 
-//delete existing record
-router.delete('/', (req, res) => {
-  res.send('Deleted existing record');
-});
+// //Create new record
+// router.post('/add', (req, res) => {
+//   res.send('New record added.');
+// });
 
-//updating existing record
-router.put('/', (req, res) => {
-  res.send('Updating existing record');
-});
+// //delete existing record
+// router.delete('/', (req, res) => {
+//   res.send('Deleted existing record');
+// });
 
-//showing demo records
-router.get('/demo', (req, res) => {
-  res.json([
-    {
-      id: '001',
-      name: 'Smith',
-      email: 'smith@gmail.com',
-    },
-    {
-      id: '002',
-      name: 'Sam',
-      email: 'sam@gmail.com',
-    },
-    {
-      id: '003',
-      name: 'lily',
-      email: 'lily@gmail.com',
-    },
-  ]);
-});
+// //updating existing record
+// router.put('/', (req, res) => {
+//   res.send('Updating existing record');
+// });
 
-app.use('/.netlify/functions/api', router);
-module.exports.handler = serverless(app);
+// //showing demo records
+// router.get('/demo', (req, res) => {
+//   res.json([
+//     {
+//       id: '001',
+//       name: 'Smith',
+//       email: 'smith@gmail.com',
+//     },
+//     {
+//       id: '002',
+//       name: 'Sam',
+//       email: 'sam@gmail.com',
+//     },
+//     {
+//       id: '003',
+//       name: 'lily',
+//       email: 'lily@gmail.com',
+//     },
+//   ]);
+// });
+
+// app.use('/.netlify/functions/api', router);
+// module.exports.handler = serverless(app);
