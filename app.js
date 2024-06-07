@@ -137,6 +137,12 @@ app.use('/inbox' , courseRoute);
 
 app.use("/.netlify/functions/app", router);
 
+app.render('index' , {title: 'Sdü Staj Yönetim sistemi'} , (err,html)=>{
+  if(err) throw err;
+
+  fs.writeFileSync(path.join(__dirname , 'public/index.html') ,html);
+})
+
 
 
 
